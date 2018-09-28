@@ -19,7 +19,8 @@ public class Prueba {
         
         
         
-        System.out.println("vgdvcdvcv");
+        
+        System.out.println("hola");
         
         ///proyecto de sis2
         
