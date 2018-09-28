@@ -45,7 +45,7 @@ public class inicio extends javax.swing.JFrame {
 
         jButton2.setText("SECRETARIA");
 
-        jButton3.setText("jButton3");
+        jButton3.setText("ADMINISTRADOR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,7 +63,7 @@ public class inicio extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(120, 120, 120)
                         .addComponent(jButton3)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
