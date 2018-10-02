@@ -1,7 +1,7 @@
 
 package vista;
 
-import controlador.conexion;
+import controlador.conexionEstudiante;
 
 import java.awt.event.KeyEvent;
 import java.sql.*;
@@ -395,7 +395,7 @@ private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         String ci= txtdni.getText();
         String celular= txttel.getText();
         String email= txtemail.getText();
-        conexion estu=new conexion();
+        conexionEstudiante estu=new conexionEstudiante();
         String []titulos={"Nombres","Apellidos","CI","Celular","Email"};
         String []res={nombre,apellido,ci,celular,email};
         model= new DefaultTableModel(null,titulos);
@@ -491,6 +491,6 @@ private void mnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JTextField txtnom;
     private javax.swing.JTextField txttel;
     // End of variables declaration//GEN-END:variables
-conexion cc= new conexion();
+conexionEstudiante cc= new conexionEstudiante();
 Connection cn= cc.conexionn();
 }

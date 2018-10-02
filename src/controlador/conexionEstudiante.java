@@ -17,7 +17,7 @@ import javax.swing.*;
  *
  * @author roger
  */
-public class conexion{
+public class conexionEstudiante{
     
     Connection conect = null;
     public boolean conexionInsert(){
