@@ -12,8 +12,8 @@ package vista;
  */
 //package Ingreso;
 
-import controlador.conexionSecretaria;
 
+import controlador.conexionSecre;
 import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.util.logging.*;
@@ -420,8 +420,8 @@ private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         String celular= txttel.getText();
        // String email= txtemail.getText();
         String direccion= txtdir.getText();
-        conexionSecretaria secre=new conexionSecretaria();
-        String []titulos={"id_secre","nombre_secre","apellido_secre","ci_secre","celular_secre","direccion_secre"};
+        conexionSecre secre=new conexionSecre();
+        String []titulos={"nombre_secre","apellido_secre","ci_secre","celular_secre","direccion_secre"};
         String []res={nombre,apellido,ci,celular,direccion};
         model= new DefaultTableModel(null,titulos);
         model.addRow(res);
@@ -539,6 +539,6 @@ private void mnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JTextField txtnom;
     private javax.swing.JTextField txttel;
     // End of variables declaration//GEN-END:variables
-conexionSecretaria cc= new conexionSecretaria();
+conexionSecre cc= new conexionSecre();
 Connection cn= cc.conexionn();
 }

@@ -17,13 +17,10 @@ import javax.swing.*;
  *
  * @author roger
  */
-public class conexionSecretaria{
+public class conexionSecre{
     
     Connection conect = null;
-    public boolean conexionInsert(){
-        return true;
-        
-    }
+
     
    
    public boolean insertarSecretaria(String nombre,String apellidos,String ci ,String celular, String direccion ) {
@@ -40,7 +37,7 @@ public class conexionSecretaria{
                 int z = 0;
                 if(nombre!=null&&apellidos!=null){
                     if(!SecretariaValido(nombre))   
-                   z=sentencia.executeUpdate("INSERT INTO secretaria(id_secre,nombre_secre,apellido_secre,ci_secre, celular_secre,direccion_secre) "
+                   z=sentencia.executeUpdate("INSERT INTO secretaria(id_admin,nombre_secre,apellido_secre,ci_secre, celular_secre,direccion_secre) "
                            + "                  VALUES("+1+",'"+nombre+"','"+apellidos+"','"+ci+"','"+celular+"','"+direccion+"')");
                 }
                 if(z==1){ respuesta=true;  }
@@ -98,4 +95,3 @@ public class conexionSecretaria{
         return conect;
 }
 }
-
