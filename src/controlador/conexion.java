@@ -24,21 +24,24 @@ public class conexion{
         return true;
         
     }
-    public boolean insertarPostre(String nombre, String valor ) {
-        Connection conexion=null;
+    
+   
+   public boolean insertarEstudiante(String nombre,String apellidos,String ci ,String celular, String email ) {
+        Connection coneccion=null;
         Statement sentencia=null;      
-    String url="jdbc:postgresql://localhost:5432/postre";
+    String url="jdbc:postgresql://localhost:5432/evento";
     String password="postgres";
     boolean respuesta =false;
     try {
             Class.forName("org.postgresql.Driver");
-            conexion=DriverManager.getConnection(url,"postgres", password);
-            sentencia=conexion.createStatement();
-            if(conexion!=null){
+            coneccion=DriverManager.getConnection(url,"postgres", password);
+            sentencia=coneccion.createStatement();
+            if(coneccion!=null){
                 int z = 0;
-                if(nombre!=null&&valor!=null){
-                    if(!postreValido(nombre))   
-                   z=sentencia.executeUpdate("INSERT INTO postre (nombrep,valor) VALUES('"+nombre+"',"+valor+")");
+                if(nombre!=null&&apellidos!=null){
+                    if(!EstudianteValido(nombre))   
+                   z=sentencia.executeUpdate("INSERT INTO estudiante(id_inscripcion,nombre_estu,apellido_estu,ci_estu, celu_estu,email_estu) "
+                           + "                  VALUES("+1+",'"+nombre+"','"+apellidos+"','"+ci+"','"+celular+"','"+email+"')");
                 }
                 if(z==1){ respuesta=true;  }
             }
@@ -49,16 +52,16 @@ public class conexion{
             return respuesta;
     }
    
-   boolean postreValido(String nombre){
+   boolean EstudianteValido(String nombre){
         boolean resultado =false;
         Connection conected = null;
       Statement stmt = null;    
       try {
          Class.forName("org.postgresql.Driver");
-         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postre", "postgres", "postgres");
+         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "postgres");
          conected.setAutoCommit(false);
          stmt = conected.createStatement();
-         ResultSet respBD = stmt.executeQuery( "SELECT nombrep FROM public.postre WHERE nombrep='"+nombre+"' ;" );
+         ResultSet respBD = stmt.executeQuery( "SELECT nombre_estu FROM public.estudiante WHERE nombre_estu='"+nombre+"' ;" );
          if(respBD.next()){
              resultado=true;
          }
@@ -71,6 +74,8 @@ public class conexion{
       }
         return resultado;
     }
+   
+   
    
    public Connection conexionn()
     {

@@ -326,7 +326,7 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
                 .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnbuscar)
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addContainerGap(387, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -335,7 +335,7 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
                 .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -389,6 +389,24 @@ private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
 private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
 // TODO add your handling code here:
+
+        String nombre=txtnom.getText();
+        String apellido= txtape.getText();
+        String ci= txtdni.getText();
+        String celular= txttel.getText();
+        String email= txtemail.getText();
+        conexion estu=new conexion();
+        String []titulos={"Nombres","Apellidos","CI","Celular","Email"};
+        String []res={nombre,apellido,ci,celular,email};
+        model= new DefaultTableModel(null,titulos);
+        model.addRow(res);
+       if(estu.insertarEstudiante(nombre, apellido, ci, celular, email)){
+           tbclientes.setModel(model);
+       } else{
+           
+           tbclientes.setModel(model);
+       }
+
     
 }//GEN-LAST:event_btnguardarActionPerformed
 
