@@ -58,12 +58,15 @@ public class inicio extends javax.swing.JFrame {
             .addGap(0, 566, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("administrador");
+        jMenu1.setText("ADMINISTRADOR");
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("secretaria");
+        jMenu2.setText("SECRETARIA");
+        jMenu2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
-        jMenuItem1.setText("modificar estudiante");
+        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jMenuItem1.setText("MODIFICAR ESTUDIANTE");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -71,15 +74,18 @@ public class inicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem1);
 
-        jMenuItem2.setText("modificar conferencista");
+        jMenuItem2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jMenuItem2.setText("MODIFICAR CONFERENCISTA");
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("estudiante");
+        jMenu3.setText("ESTUDIANTE");
+        jMenu3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("conferencista");
+        jMenu4.setText("CONFERENCISTA");
+        jMenu4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -104,7 +110,7 @@ public class inicio extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
