@@ -194,40 +194,36 @@ private void btncronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 // TODO add your handling code here:
      
 
-        conexionHorario hora=new conexionHorario();
-        
-        
-        ResultSet res =hora.cronograma();
-        
-        
+      
         String []titulos={"HORA","CONFERENSISTA","TEMA"};
         model= new DefaultTableModel(null,titulos);
         
        // String []Datos= new String [3];
         
-       String a1="";
-       String a2="";
-       String a3="";
+      // String a1="";
+       //String a2="";
+       //String a3="";
+       String []re = new String [3];
         try {
+            conexionHorario hora=new conexionHorario();
+             ResultSet res =hora.cronograma();
             
             while(res.next())
             {
-                a1=res.getString("hora");
-                a2= res.getString("nombre_confe")+"  "+res.getString("apellido_confe");
-                a3=res.getString("tema"); 
+                re[0]=res.getString("hora");
+               re[1] = res.getString("nombre_confe")+"  "+res.getString("apellido_confe");
+               re[2] =res.getString("tema");
+                model.addRow(re);
+               
                
             }
+            tbclientes.setModel(model);
         } catch (SQLException ex) {
             //Logger.getLogger(ConsultasBoletas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String []re ={a1,a2,a3};
+        
  
       
-         //re[1]=Datos[1];
-         //re[2]=Datos[2];
-         model.addRow(re);
-         //model.addRow(res);
-      tbclientes.setModel(model);
         
         
          /*//String []titulos={"Nombres","Apellidos","CI","Celular","Email"};
