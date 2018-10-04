@@ -32,7 +32,7 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
          //cargar("");
     }
      void bloquear(){
-    txtcod.setEnabled(false);
+    //txtcod.setEnabled(false);
     txtnom.setEnabled(false);
     txtape.setEnabled(false);
     txtprof.setEnabled(false);
@@ -43,13 +43,13 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
     
     }
     void limpiar(){
-    txtcod.setText("");
+   // txtcod.setText("");
     txtnom.setText("");
     txtape.setText("");
     txtprof.setText("");
     }
     void desbloquear(){
-    txtcod.setEnabled(true);
+   // txtcod.setEnabled(true);
     txtnom.setEnabled(true);
     txtape.setEnabled(true);
     txtprof.setEnabled(true);
@@ -82,7 +82,7 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         txtci = new javax.swing.JTextField();
         txtemail = new javax.swing.JTextField();
-        txtcelu2 = new javax.swing.JTextField();
+        txtcelu = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnnuevo = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
@@ -90,7 +90,7 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
         btncancelar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbproductos = new javax.swing.JTable();
+        tbconferencista = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         txtbuscar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -175,9 +175,9 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
             }
         });
 
-        txtcelu2.addActionListener(new java.awt.event.ActionListener() {
+        txtcelu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcelu2ActionPerformed(evt);
+                txtceluActionPerformed(evt);
             }
         });
 
@@ -211,7 +211,7 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtcelu2, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                            .addComponent(txtcelu, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                                             .addComponent(txtprof))
                                         .addGap(35, 35, 35)
                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -238,7 +238,7 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel6)
-                                .addComponent(txtcelu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtcelu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -329,7 +329,7 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
                 .addContainerGap(142, Short.MAX_VALUE))
         );
 
-        tbproductos.setModel(new javax.swing.table.DefaultTableModel(
+        tbconferencista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -340,8 +340,8 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
 
             }
         ));
-        tbproductos.setComponentPopupMenu(jPopupMenu1);
-        jScrollPane2.setViewportView(tbproductos);
+        tbconferencista.setComponentPopupMenu(jPopupMenu1);
+        jScrollPane2.setViewportView(tbconferencista);
 
         jLabel4.setText("Buscar:");
 
@@ -412,8 +412,6 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("Datos de conferencista");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -426,7 +424,7 @@ private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 // TODO add your handling code here:
     desbloquear();
     limpiar();
-    txtcod.requestFocus();
+   // txtcod.requestFocus();
    //codigos();
 }//GEN-LAST:event_btnnuevoActionPerformed
 
@@ -457,7 +455,7 @@ private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
 
 private void mneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mneliminarActionPerformed
 // TODO add your handling code here:
-       int filasel= tbproductos.getSelectedRow();
+       int filasel= tbconferencista.getSelectedRow();
        try {
            if(filasel==-1)
            {
@@ -465,7 +463,7 @@ private void mneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
            }
            else
            {
-             String  cod=(String)tbproductos.getValueAt(filasel, 0);
+             String  cod=(String)tbconferencista.getValueAt(filasel, 0);
              String eliminarSQL="DELETE FROM producto WHERE cod_pro = '"+cod+"'";
              try {
              PreparedStatement pst  = cn.prepareStatement(eliminarSQL);
@@ -487,20 +485,21 @@ private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 // TODO add your handling code here:
    String nombre=txtnom.getText();
         String apellido= txtape.getText();
-        String ci= txtci.getText();
-        String celular= txtcel.getText();
+       
+        String celular= txtcelu.getText();
         String email= txtemail.getText();
         String profesion= txtprof.getText();
+         String ci= txtci.getText();
         conexionConferencista confe=new conexionConferencista();
-        String []titulos={"Nombres","Apellidos","Profesion","Celular","Email","CI"};
-        String []res={nombre,apellido,profesion,celular,email,ci};
+        String []titulos={"Nombres","Apellidos","Celular","Email","Profesion","ci"};
+        String []res={nombre,apellido,celular,email,profesion,ci};
         model= new DefaultTableModel(null,titulos);
         model.addRow(res);
-       if(confe.insertarConferencista(nombre, apellido, profesion, celular, email, ci)){
-           tbclientes.setModel(model);
+       if(confe.insertarConferencista(nombre, apellido, celular, email, profesion, ci)){
+           tbconferencista.setModel(model);
        } else{
            
-           tbclientes.setModel(model);
+           tbconferencista.setModel(model);
        }
 }//GEN-LAST:event_btnguardarActionPerformed
 
@@ -508,7 +507,7 @@ private void mnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 // TODO add your handling code here:
     
     try {
-        int filaMod=tbproductos.getSelectedRow();
+        int filaMod=tbconferencista.getSelectedRow();
         if(filaMod==-1)
         {
         JOptionPane.showMessageDialog(null, "Seleccione alguna fila");
@@ -517,7 +516,7 @@ private void mnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         {
         
         btnactualizar.setEnabled(true);
-        String cod=(String)tbproductos.getValueAt(filaMod, 0);
+        String cod=(String)tbconferencista.getValueAt(filaMod, 0);
         desbloquear();
      //   BuscarProductoEditar(cod);
         }
@@ -527,17 +526,7 @@ private void mnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
 private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
 // TODO add your handling code here:
-     String sql="UPDATE producto SET precio = '"+txtape.getText()+"',descripcion ='"+txtnom.getText()+"',Stock = '"+txtprof.getText()+"' WHERE cod_pro = '"+txtcod.getText()+"'"; 
-    try {
-        PreparedStatement pst = cn.prepareStatement(sql);
-        pst.executeUpdate();
-       JOptionPane.showMessageDialog(null, "Actualizado");
-       //cargar("");
-       bloquear();
-       limpiar();
-    } catch (Exception e) {
-         JOptionPane.showMessageDialog(null, e);
-    }
+    
 }//GEN-LAST:event_btnactualizarActionPerformed
 
 private void txtprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprofActionPerformed
@@ -552,9 +541,9 @@ private void txtprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         // TODO add your handling code here:
     }//GEN-LAST:event_txtemailActionPerformed
 
-    private void txtcelu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcelu2ActionPerformed
+    private void txtceluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtceluActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcelu2ActionPerformed
+    }//GEN-LAST:event_txtceluActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -581,15 +570,15 @@ private void txtprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private javax.swing.JTable jTable1;
     private javax.swing.JMenuItem mnactualizar;
     private javax.swing.JMenuItem mneliminar;
-    private javax.swing.JTable tbproductos;
+    private javax.swing.JTable tbconferencista;
     private javax.swing.JTextField txtape;
     private javax.swing.JTextField txtbuscar;
-    private javax.swing.JTextField txtcelu2;
+    private javax.swing.JTextField txtcelu;
     private javax.swing.JTextField txtci;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtnom;
     private javax.swing.JTextField txtprof;
     // End of variables declaration//GEN-END:variables
    conexionConferencista cc= new conexionConferencista();
-   Connection cn=cc.conexionConferencista();
+   Connection cn=cc.conexionn();
 }
