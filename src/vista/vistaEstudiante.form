@@ -151,7 +151,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtape" alignment="0" pref="391" max="32767" attributes="0"/>
+                                      <Component id="txtape" alignment="0" pref="395" max="32767" attributes="0"/>
                                       <Component id="txttel" alignment="0" min="-2" pref="96" max="-2" attributes="1"/>
                                   </Group>
                               </Group>
@@ -320,7 +320,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnactualizar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Actualizar"/>
+            <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnactualizarActionPerformed"/>

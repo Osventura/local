@@ -202,7 +202,7 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3))
                                 .addGap(29, 29, 29)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtape, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                                    .addComponent(txtape, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                                     .addComponent(txttel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,7 +251,7 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
             }
         });
 
-        btnactualizar.setText("Actualizar");
+        btnactualizar.setText("Eliminar");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizarActionPerformed(evt);
