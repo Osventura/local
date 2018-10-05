@@ -17,7 +17,7 @@ public class conexionConferencista{
     Connection conect = null;
     public boolean conexionInsert(){
         return true;
-        
+        //contrsenia
     }
     
    
