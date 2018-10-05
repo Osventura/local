@@ -20,7 +20,7 @@ public class conexionConferencista{
         
     }
     
-   
+//insertar   
    public boolean insertarConferencista(String nombre,String apellidos,String celular ,String email, String profesion, String ci ) {
         Connection coneccion=null;
         Statement sentencia=null;      
