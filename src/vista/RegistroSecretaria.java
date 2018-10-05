@@ -1,17 +1,5 @@
 package vista;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * IngresoCliente.java
- *
- * Created on 07-abr-2013, 11:16:29
- */
-//package Ingreso;
-
 
 import controlador.conexionSecre;
 import java.awt.event.KeyEvent;
@@ -20,27 +8,21 @@ import java.util.logging.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Administrador
- */
+
 public class RegistroSecretaria extends javax.swing.JInternalFrame {
     DefaultTableModel model;
-    /** Creates new form IngresoCliente */
+ 
     public RegistroSecretaria() {
         initComponents();
-        bloquear();
-        //cargar("");
-        
+        bloquear();   
     }
      void bloquear(){
-    //txtcod.setEnabled(false);
+
     txtnom.setEnabled(false);
     txtape.setEnabled(false);
     txtdir.setEnabled(false);
     txtemail.setEnabled(false);
     txttel.setEnabled(false);
-    //txtruc.setEnabled(false);
     txtdni.setEnabled(false);
     cbosexo.setEnabled(false);
     btnguardar.setEnabled(false);
@@ -50,18 +32,14 @@ public class RegistroSecretaria extends javax.swing.JInternalFrame {
     
     }
     void limpiar(){
-    //txtcod.setText("");
     txtnom.setText("");
     txtdir.setText("");
     txtdni.setText("");
     txtemail.setText("");
-    //txtruc.setText("");
     txttel.setText("");
-    txtape.setText("");
-    
+    txtape.setText("");   
     }
     void desbloquear(){
-    //txtcod.setEnabled(true);
     txtnom.setEnabled(true);
     txtape.setEnabled(true);
     txtdir.setEnabled(true);
@@ -73,7 +51,6 @@ public class RegistroSecretaria extends javax.swing.JInternalFrame {
     btnguardar.setEnabled(true);
     btnnuevo.setEnabled(false);
     btncancelar.setEnabled(true);
-    //btnactualizar.setEnabled(false);
     }
      
     @SuppressWarnings("unchecked")

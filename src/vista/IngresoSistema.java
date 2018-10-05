@@ -1,13 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/*
- * IngresoSistema.java
- *
- * Created on 15-abr-2013, 12:05:20
- */
 package vista;
 
 import javax.swing.JOptionPane;
