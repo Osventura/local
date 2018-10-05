@@ -45,8 +45,6 @@ public class inicio extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(20, 20));
-        setSize(new java.awt.Dimension(1200, 700));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("CONFERENCIA DE SIS2");
@@ -80,6 +78,11 @@ public class inicio extends javax.swing.JFrame {
 
         jMenuItem2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jMenuItem2.setText("MODIFICAR CONFERENCISTA");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
