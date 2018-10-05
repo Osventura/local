@@ -25,7 +25,7 @@ public class conexionConferencista{
         Connection coneccion=null;
         Statement sentencia=null;      
     String url="jdbc:postgresql://localhost:5432/evento";
-    String password="ventura";
+    String password="postgres";
     boolean respuesta =false;
     try {
             Class.forName("org.postgresql.Driver");
@@ -53,7 +53,7 @@ public class conexionConferencista{
       Statement stmt = null;    
       try {
          Class.forName("org.postgresql.Driver");
-         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "ventura");
+         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "postgres");
          conected.setAutoCommit(false);
          stmt = conected.createStatement();
          ResultSet respBD = stmt.executeQuery( "SELECT nombre_confe FROM public.conferencista WHERE nombre_confe='"+nombre+"' ;" );
@@ -69,6 +69,10 @@ public class conexionConferencista{
       }
         return resultado;
     }
+   
+   
+   
+   
    
    
    

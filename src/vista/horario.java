@@ -192,53 +192,25 @@ private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
 private void btncronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncronogramaActionPerformed
 // TODO add your handling code here:
-     
 
-      
         String []titulos={"HORA","CONFERENSISTA","TEMA"};
         model= new DefaultTableModel(null,titulos);
-        
-       // String []Datos= new String [3];
-        
-      // String a1="";
-       //String a2="";
-       //String a3="";
        String []re = new String [3];
         try {
             conexionHorario hora=new conexionHorario();
-             ResultSet res =hora.cronograma();
-            
+             ResultSet res =hora.cronograma();           
             while(res.next())
             {
                 re[0]=res.getString("hora");
                re[1] = res.getString("nombre_confe")+"  "+res.getString("apellido_confe");
                re[2] =res.getString("tema");
-                model.addRow(re);
-               
-               
+                model.addRow(re);    
             }
             tbclientes.setModel(model);
         } catch (SQLException ex) {
             //Logger.getLogger(ConsultasBoletas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
- 
-      
-        
-        
-         /*//String []titulos={"Nombres","Apellidos","CI","Celular","Email"};
-        //String []res={nombre,apellido,ci,celular,email};
-        model= new DefaultTableModel(null,titulos);
-        //model.addRow(res);
-       /if(estu.insertarEstudiante(nombre, apellido, ci, celular, email)){
-           tbclientes.setModel(model);
-       } else{
-           
-           tbclientes.setModel(model);
-       }*/
 
-        
-  
         
 
 }//GEN-LAST:event_btncronogramaActionPerformed

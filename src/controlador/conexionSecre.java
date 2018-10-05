@@ -72,6 +72,51 @@ public class conexionSecre{
         return resultado;
     }
    
+   public ResultSet eliminarconferencista(String ci){
+       
+      ResultSet respuesta = null;
+        Connection conectado = null;
+      Statement estado = null;    
+      try {
+         Class.forName("org.postgresql.Driver");
+         conectado = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "postgres");
+         conectado.setAutoCommit(false);
+         estado = conectado.createStatement();
+         respuesta = estado.executeQuery( "select nombre_confe, apellido_confe, profesion_confe,ci_confe\n" +
+                                        "from conferencista\n" +
+                                    "where ci_confe='"+ci+"';" );
+      
+ 
+         
+         
+         
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+         System.exit(0);
+      }
+        return respuesta;
+    }
+   
+   
+   
+     public Connection connectados() throws SQLException {
+        return DriverManager.getConnection("jdbc:postgresql://localhost/evento", "postgres", "postgres");
+    }
+    public int eliminarConfere(String ci) {
+        String SQL = "DELETE FROM conferencia WHERE ci_confe = '"+ci+"'; DELETE FROM conferencista WHERE ci_confe = '"+ci+"';";
+ 
+        int z = 0;
+ 
+        try (Connection conn = connectados(); PreparedStatement pstmt = conn.prepareStatement(SQL)) {
+
+            z = pstmt.executeUpdate();
+ 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return z;
+    }
+   
    
    
    public Connection conexionn()
