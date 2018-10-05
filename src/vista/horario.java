@@ -236,6 +236,23 @@ private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
 private void btnexpositoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexpositoresActionPerformed
 // TODO add your handling code here:
+String []titulos={"CONFERENSISTA"};
+        model= new DefaultTableModel(null,titulos);
+       String []re = new String [3];
+        try {
+            conexionHorario hora=new conexionHorario();
+             ResultSet res =hora.cronograma();           
+            while(res.next())
+            {
+                //re[0]=res.getString("hora");
+               re[0] = res.getString("nombre_confe")+"  "+res.getString("apellido_confe");
+               //re[2] =res.getString("tema");
+                model.addRow(re);    
+            }
+            tbclientes.setModel(model);
+        } catch (SQLException ex) {
+   
+        }
 
       
 
