@@ -176,7 +176,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-
+        this.dispose();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
 
