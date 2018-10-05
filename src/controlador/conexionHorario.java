@@ -28,16 +28,13 @@ public class conexionHorario{
       Statement stmt = null;    
       try {
          Class.forName("org.postgresql.Driver");
-         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5433/evento", "postgres", "richard");
+         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "postgres");
          conected.setAutoCommit(false);
          stmt = conected.createStatement();
          respBD = stmt.executeQuery( "select hora, nombre_confe,apellido_confe,tema\n" +
                                         "from conferencia,conferencista\n" +
-                                    "where conferencista.id_confe=conferencia.id_confe;" );
-        
-         //respBD.close();
-        // stmt.close();
-        // conected.close();
+                                    "where conferencista.ci_confe=conferencia.ci_confe;" );
+
       } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
          System.exit(0);
@@ -50,18 +47,7 @@ public class conexionHorario{
    public Connection conexionn()
     {
       try {
-             
-           //Cargamos el Driver MySQL
-           //Class.forName("com.mysql.jdbc.Driver");
-           //conect = DriverManager.getConnection("jdbc:mysql://localhost/tienda","root","root");
-           //JOptionPane.showMessageDialog(null, "conectado");
-           //Cargamos el Driver Access
-           //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           //Conectar en red base 
-           //String strConect = "jdbc:odbc:Driver=Microsoft Access Driver (*.mdb);DBQ=//servidor/bd_cw/cw.mdb";
-           //Conectar Localmente
-           //String strConect = "jdbc:odbc:Driver=Microsoft Access Driver (*.mdb);DBQ=D:/cwnetbeans/cw.mdb";
-          //conect = DriverManager.getConnection(strConect,"",""); 
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error "+e);
         }
