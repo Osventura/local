@@ -27,9 +27,6 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
     /** Creates new form IngresoProductos */
     public IngresoConferencista() {
         initComponents();
-         this.setLocation(150,15 );
-         bloquear();
-         //cargar("");
     }
      void bloquear(){
     //txtcod.setEnabled(false);
@@ -271,7 +268,7 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
             }
         });
 
-        btnguardar.setText("Grabar");
+        btnguardar.setText("Guardar");
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnguardarActionPerformed(evt);
@@ -359,6 +356,11 @@ public class IngresoConferencista extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -544,6 +546,14 @@ private void txtprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private void txtceluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtceluActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtceluActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
