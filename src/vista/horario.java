@@ -167,11 +167,35 @@ public class horario extends javax.swing.JInternalFrame {
 
 private void btntemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntemaActionPerformed
 // TODO add your handling code here:
-    try {
-       
-    } catch (Exception e) {
-        System.out.print(e.getMessage());
-    }
+    String []titulos={"TEMA"};
+        model= new DefaultTableModel(null,titulos);
+        
+       // String []Datos= new String [3];
+        
+      // String a1="";
+       //String a2="";
+       //String a3="";
+       String []re = new String [3];
+        try {
+            conexionHorario hora=new conexionHorario();
+             ResultSet res =hora.cronograma();
+            
+            while(res.next())
+            {
+                //re[0]=res.getString("hora");
+               //re[1] = res.getString("nombre_confe")+"  "+res.getString("apellido_confe");
+               re[0] =res.getString("tema");
+                model.addRow(re);
+               
+            }
+            tbclientes.setModel(model);
+        } catch (SQLException ex) {
+            //Logger.getLogger(ConsultasBoletas.class.getName()).log(Level.SEVERE, null, ex);
+           
+        }
+        
+    
+    
     
 }//GEN-LAST:event_btntemaActionPerformed
 
