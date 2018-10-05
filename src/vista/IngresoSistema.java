@@ -150,6 +150,7 @@ public class IngresoSistema extends javax.swing.JFrame {
 
 private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
 // TODO add your handling code here:
+//aceptar
         String usu=txtusuario.getText();
     String pas=new String(txtcontra.getPassword());
     if(usu.equals("admin") && pas.equals("evento"))
