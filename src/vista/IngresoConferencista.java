@@ -11,7 +11,6 @@
 package vista;
 
 import controlador.conexionConferencista;
-import controlador.conexionEstudiante;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.JOptionPane;
