@@ -15,7 +15,7 @@ import javax.swing.*;
 
 /**
  *
- * @author roger
+ * @author RICHARD VENTURA
  */
 public class conexionSecre{
     
@@ -23,7 +23,7 @@ public class conexionSecre{
 
     
    
-   public boolean insertarSecretaria(String nombre,String apellidos,String ci ,String celular, String direccion ) {
+   public boolean insertarSecretaria(String nombre,String apellidos,String ci ,String celular, String direccion, String email ) {
         Connection coneccion=null;
         Statement sentencia=null;      
     String url="jdbc:postgresql://localhost:5433/evento";
@@ -37,8 +37,8 @@ public class conexionSecre{
                 int z = 0;
                 if(nombre!=null&&apellidos!=null){
                     if(!SecretariaValido(nombre))   
-                   z=sentencia.executeUpdate("INSERT INTO secretaria(id_admin,nombre_secre,apellido_secre,ci_secre, celular_secre,direccion_secre) "
-                           + "                  VALUES("+1+",'"+nombre+"','"+apellidos+"','"+ci+"','"+celular+"','"+direccion+"')");
+                   z=sentencia.executeUpdate("INSERT INTO secretaria(id_admin,nombre_secre,apellido_secre,ci_secre, celular_secre,direccion_secre,email_secre) "
+                           + "                  VALUES("+1+",'"+nombre+"','"+apellidos+"','"+ci+"','"+celular+"','"+direccion+"','"+email+"')");
                 }
                 if(z==1){ respuesta=true;  }
             }

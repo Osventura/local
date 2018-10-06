@@ -24,17 +24,19 @@ public class inicio extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(20, 20));
+        setSize(new java.awt.Dimension(1200, 700));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("CONFERENCIA DE SIS2");
@@ -52,6 +54,15 @@ public class inicio extends javax.swing.JFrame {
 
         jMenu1.setText("ADMINISTRADOR");
         jMenu1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        jMenuItem3.setText("REGISTRO SECRETARIA");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("SECRETARIA");
@@ -68,11 +79,6 @@ public class inicio extends javax.swing.JFrame {
 
         jMenuItem2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jMenuItem2.setText("MODIFICAR CONFERENCISTA");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -92,15 +98,6 @@ public class inicio extends javax.swing.JFrame {
 
         jMenu4.setText("CONFERENCISTA");
         jMenu4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-
-        jMenuItem3.setText("REGISTRO SECRETARIA");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem3);
-
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("SALIR");
