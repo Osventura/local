@@ -15,6 +15,7 @@ public class IngresoSistema extends javax.swing.JFrame {
           this.setSize(380, 200);
         this.setLocation(350, 300);
         txtusuario.requestFocus();
+        this.setLocationRelativeTo(null);
     }
 
     /** This method is called from within the constructor to
