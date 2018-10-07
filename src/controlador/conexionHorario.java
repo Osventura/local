@@ -25,7 +25,7 @@ public class conexionHorario{
       Statement stmt = null;    
       try {
          Class.forName("org.postgresql.Driver");
-         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "carlos");
+         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5433/evento", "postgres", "richard");
          conected.setAutoCommit(false);
          stmt = conected.createStatement();
          respBD = stmt.executeQuery( "select hora, nombre_confe,apellido_confe,tema\n" +
