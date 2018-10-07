@@ -23,14 +23,14 @@ public class horario extends javax.swing.JInternalFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         mnmodificar = new javax.swing.JMenuItem();
         mneliminar = new javax.swing.JMenuItem();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbclientes = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         btncronograma = new javax.swing.JButton();
         btnexpositores = new javax.swing.JButton();
         btntema = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbclientes = new javax.swing.JTable();
 
         mnmodificar.setText("Modificar");
         mnmodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +54,20 @@ public class horario extends javax.swing.JInternalFrame {
         setTitle("ESTUDIANTE");
         setRequestFocusEnabled(false);
         setVisible(true);
+
+        tbclientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbclientes.setComponentPopupMenu(jPopupMenu1);
+        jScrollPane2.setViewportView(tbclientes);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -121,20 +135,6 @@ public class horario extends javax.swing.JInternalFrame {
                     .addComponent(btnsalir))
                 .addGap(189, 189, 189))
         );
-
-        tbclientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbclientes.setComponentPopupMenu(jPopupMenu1);
-        jScrollPane2.setViewportView(tbclientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
