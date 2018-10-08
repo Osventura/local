@@ -462,12 +462,15 @@ private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         String email= txtemail.getText();
         String profesion= txtprof.getText();
          String ci= txtci.getText();
+         String tema= txtema.getText();
+         String hora= txhora.getText();
+         String resumen= txresumen.getText();
         conexionConferencista confe=new conexionConferencista();
-        String []titulos={"Nombres","Apellidos","Celular","Email","Profesion","ci"};
-        String []res={nombre,apellido,celular,email,profesion,ci};
+        String []titulos={"Nombres","Apellidos","Celular","Email","Profesion","ci","Tema","Hora","Resumen"};
+        String []res={nombre,apellido,celular,email,profesion,ci,tema,hora,resumen};
         model= new DefaultTableModel(null,titulos);
         model.addRow(res);
-       if(confe.insertarConferencista(nombre, apellido, celular, email, profesion, ci)){
+       if(confe.insertarConferencista(nombre, apellido, celular, email, profesion, ci, tema, hora, resumen)){
            tbconferencista.setModel(model);
        } else{
            

@@ -21,11 +21,12 @@ public class conexionConferencista{
     }
     
 //insertar   
-   public boolean insertarConferencista(String nombre,String apellidos,String celular ,String email, String profesion, String ci ) {
+   public boolean insertarConferencista(String nombre,String apellidos,String celular ,String email, String profesion, String ci, String tema, String hora, String resumen ) {
         Connection coneccion=null;
-        Statement sentencia=null;      
+        Statement sentencia=null;    
+        Statement sentencia1=null;
     String url="jdbc:postgresql://localhost:5432/evento";
-    String password="postgres";
+    String password="ventura";
     boolean respuesta =false;
     try {
             Class.forName("org.postgresql.Driver");
@@ -37,6 +38,8 @@ public class conexionConferencista{
                     if(!ConferencistaValido(nombre))   
                    z=sentencia.executeUpdate("INSERT INTO conferencista(nombre_confe,apellido_confe,celular_confe, email_confe,profesion_confe,ci_confe) "
                            + "                  VALUES('"+nombre+"','"+apellidos+"','"+celular+"','"+email+"','"+profesion+"','"+ci+"')");
+                        z=sentencia1.executeUpdate("INSERT INTO conferencia(id_direccion,ci_confe,tema, hora, resumen) "
+                           + "                  VALUES('"+1+",'"+tema+"','"+hora+"','"+resumen+"')");
                 }
                 if(z==1){ respuesta=true;  }
             }
@@ -53,7 +56,7 @@ public class conexionConferencista{
       Statement stmt = null;    
       try {
          Class.forName("org.postgresql.Driver");
-         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "postgres");
+         conected = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "ventura");
          conected.setAutoCommit(false);
          stmt = conected.createStatement();
          ResultSet respBD = stmt.executeQuery( "SELECT nombre_confe FROM public.conferencista WHERE nombre_confe='"+nombre+"' ;" );
