@@ -86,5 +86,46 @@ public class conexionEstudiante{
             JOptionPane.showMessageDialog(null,"Error "+e);
         }
         return conect;
-}
+    }
+   
+   
+   
+   public ResultSet eliminarEstudiante(String ci){
+       
+      ResultSet respuesta = null;
+        Connection conectado = null;
+      Statement estado = null;    
+      try {
+         Class.forName("org.postgresql.Driver");
+         conectado = DriverManager.getConnection("jdbc:postgresql://localhost:5432/evento", "postgres", "postgres");
+         conectado.setAutoCommit(false);
+         estado = conectado.createStatement();
+         respuesta = estado.executeQuery( "select nombre_estu, apellido_estu, celu_estu,ci_estu\n" +
+                                        "from estudiante\n" +
+                                    "where ci_estu='"+ci+"';" );
+   
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+         System.exit(0);
+      }
+        return respuesta;
+    }
+   
+   public Connection connectados() throws SQLException {
+        return DriverManager.getConnection("jdbc:postgresql://localhost/evento", "postgres", "postgres");
+    }
+    public int eliminarEstudianteTabla(String ci) {
+        String SQL = "DELETE FROM estudiante WHERE ci_estu = '"+ci+"'; ";
+ 
+        int z = 0;
+ 
+        try (Connection conn = connectados(); PreparedStatement pstmt = conn.prepareStatement(SQL)) {
+
+            z = pstmt.executeUpdate();
+ 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return z;
+    }
 }

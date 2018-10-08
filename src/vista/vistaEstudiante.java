@@ -180,7 +180,7 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
                             .addComponent(txttel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtape, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +227,7 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
             }
         });
 
-        btncancelar.setText("Cancelar");
+        btncancelar.setText("Buscar");
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncancelarActionPerformed(evt);
@@ -262,10 +262,10 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
                 .addComponent(btnnuevo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnguardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnactualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addComponent(btncancelar)
+                .addGap(18, 18, 18)
+                .addComponent(btnactualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnsalir)
                 .addContainerGap())
@@ -289,16 +289,17 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,33 +322,43 @@ public class vistaEstudiante extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-// TODO add your handling code here:
-    try {
-       
-    } catch (Exception e) {
-        System.out.print(e.getMessage());
-    }
-    
+    String ci= txtdni.getText();
+    conexionEstudiante eliminar=new conexionEstudiante();
+    eliminar.eliminarEstudianteTabla(ci);  
 }//GEN-LAST:event_btnactualizarActionPerformed
 
 private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-// TODO add your handling code here:
+
     this.dispose();
 }//GEN-LAST:event_btnsalirActionPerformed
 
 private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-// TODO add your handling code here:
-     
+    this.limpiar();    
 }//GEN-LAST:event_btnnuevoActionPerformed
 
 private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-// TODO add your handling code here:
-    bloquear();
+
+            String ci= txtdni.getText();
+        String []titulos={"CI","ESTUDIANTE","CELULAR"};
+        model= new DefaultTableModel(null,titulos);
+        String []re = new String [3];
+        try {
+            conexionEstudiante hora=new conexionEstudiante();
+             ResultSet res =hora.eliminarEstudiante(ci);           
+            while(res.next())
+            {
+                re[0]=res.getString("ci_estu");
+               re[1] = res.getString("nombre_estu")+"  "+res.getString("apellido_estu");
+               re[2] =res.getString("celu_estu");
+                model.addRow(re);    
+            }
+            tbclientes.setModel(model);
+        } catch (SQLException ex) {
+            //Logger.getLogger(ConsultasBoletas.class.getName()).log(Level.SEVERE, null, ex);
+        } 
 }//GEN-LAST:event_btncancelarActionPerformed
 
 private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-
-
         String nombre=txtnom.getText();
         String apellido= txtape.getText();
         String ci= txtdni.getText();
@@ -364,8 +375,6 @@ private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
            
            tbclientes.setModel(model);
        }
-
-    
 }//GEN-LAST:event_btnguardarActionPerformed
 
 private void txtdniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdniKeyPressed
