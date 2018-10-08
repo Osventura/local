@@ -22,7 +22,6 @@ public class inicio extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         escritorio = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -42,24 +41,15 @@ public class inicio extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("CONFERENCIA DE SIS2");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/auditorio.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-
-        escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addGap(0, 896, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 555, Short.MAX_VALUE))
+            .addGap(0, 566, Short.MAX_VALUE)
         );
 
         jMenu1.setText("ADMINISTRADOR");
@@ -89,6 +79,11 @@ public class inicio extends javax.swing.JFrame {
 
         jMenuItem2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jMenuItem2.setText("MODIFICAR CONFERENCISTA");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -153,9 +148,9 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         
-        vistaEstudiante cli= new vistaEstudiante();
-        escritorio.add(cli);
-        cli.show();
+        vistaEstudiante estudiante= new vistaEstudiante();
+        escritorio.add(estudiante);
+        estudiante.show();
         
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -177,9 +172,9 @@ public class inicio extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
-        IngresoConferencista cli= new IngresoConferencista();
-        escritorio.add(cli);
-        cli.show();
+        IngresoConferencista confe= new IngresoConferencista();
+        escritorio.add(confe);
+        confe.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -190,7 +185,6 @@ public class inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
